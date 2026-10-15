@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="logo">SMS</div>
+        <div>
+            <h3>Student Management System</h3>
+            <p>Manage your students efficiently</p>
+        </div>
+    </div>
+    <span id="registeredCount">0 Students Registered</span>
+</header>
+
+<main class="container">
+
+    <nav class="navigation">
+        <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+        <button class="nav-btn" data-page="students">Students</button>
+        <button class="nav-btn" data-page="add">Add Student</button>
+    </nav>
+
+    <section id="dashboardPage">
+        <div class="welcome-banner">
+            <div class="welcome-icon">♧</div>
+            <div>
+                <h2>Student Management System</h2>
+                <p>Welcome back! Here's your dashboard overview.</p>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span>Total Students</span>
+                <div class="stat-icon blue">♙</div>
+                <h2 id="totalStudents">0</h2>
+                <small>Registered students</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Active Students</span>
+                <div class="stat-icon green">↗</div>
+                <h2 id="activeStudents">0</h2>
+                <small>Currently registered</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Inactive Students</span>
+                <div class="stat-icon red">♙</div>
+                <h2 id="inactiveStudents">0</h2>
+                <small>Inactive records</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Total Departments</span>
+                <div class="stat-icon purple">▣</div>
+                <h2 id="totalDepartments">0</h2>
+                <small>Available departments</small>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <h3>Quick Actions</h3>
+            <p>Common tasks you might want to perform</p>
+
+            <div class="action-grid">
+                <button class="action-card" data-page="students">
+                    <span class="action-icon blue-text">♙</span>
+                    <strong>View All Students</strong>
+                    <small>Browse and manage student records</small>
+                </button>
+
+                <button class="action-card" data-page="add">
+                    <span class="action-icon green-text">♧</span>
+                    <strong>Add New Student</strong>
+                    <small>Register a new student</small>
+                </button>
+
+                <button class="action-card" data-page="students">
+                    <span class="action-icon purple-text">▣</span>
+                    <strong>Manage Records</strong>
+                    <small>View, edit and delete records</small>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="addPage" class="content-card hidden">
+        <h2 id="formTitle">Add New Student</h2>
+        <p>Enter the student details below.</p>
+
+        <form id="studentForm">
+            <input type="text" id="name" placeholder="Student Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="text" id="department" placeholder="Department" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+
+            <div class="form-actions">
+                <button type="submit" id="submitBtn">Add Student</button>
+                <button type="button" id="cancelEdit" class="secondary hidden">
+                    Cancel
+                </button>
+            </div>
+        </form>
+        <p id="message" role="status"></p>
+    </section>
+
+    <section id="studentsPage" class="content-card hidden">
+        <div class="section-heading">
+            <div>
+                <h2>Student Records</h2>
+                <p>View and manage all registered students.</p>
+            </div>
+            <button data-page="add">+ Add Student</button>
+        </div>
+
+        <input type="search" id="searchInput"
+               placeholder="Search by name, email or department..."
+               class="search-box">
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTable">
+                    <tr>
+                        <td colspan="5">Loading student records...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p id="tableMessage" role="status"></p>
+    </section>
+
+</main>
+
+<footer>
+    <span>© 2026 Student Management System</span>
+    <span>Student Records Dashboard</span>
+</footer>
+
+</body>
+</html>
